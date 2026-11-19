@@ -1,0 +1,167 @@
+/* ==================================================
+   PALETA DE CORES
+   As variaveis abaixo centralizam as cores principais.
+   Para alterar o visual do painel, basta mudar os valores aqui.
+   ================================================== */
+:root {
+    --azul-principal: #60a5fa;
+    --fundo-pagina: #0f172a;
+    --fundo-cartao: #1e293b;
+    --texto-escuro: #e2e8f0;
+    --borda-cartao: #334155;
+    --fundo-etiqueta: #1e3a8a;
+}
+
+/* ==================================================
+   CONFIGURACOES GERAIS
+   box-sizing faz largura e altura incluirem bordas e padding.
+   O seletor * aplica essa regra a todos os elementos.
+   ================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Configuracao visual da pagina principal. */
+body {
+    padding: 24px;
+    background: var(--fundo-pagina);
+    color: var(--texto-escuro);
+    font-family: system-ui, sans-serif;
+}
+
+/* Limita a largura do painel e centraliza seu conteudo na tela. */
+.painel-container {
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Centraliza o cabecalho e o texto que aparece dentro dele. */
+.topo-painel {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Define o espacamento do titulo e dos textos do topo. */
+.topo-painel h1 {
+    margin: 8px 0;
+}
+
+.topo-painel p {
+    line-height: 1.6;
+}
+
+/* Selo pequeno usado acima do titulo centralizado. */
+.selo-ambiental {
+    color: var(--azul-principal);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ==================================================
+   BOTOES DE FILTRO
+   Os botoes ficam lado a lado e quebram para novas linhas
+   em telas menores. flex-wrap permite essa quebra.
+   ================================================== */
+.barra-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.btn-filtro {
+    padding: 8px 16px;
+    border: 2px solid var(--azul-principal);
+    border-radius: 999px;
+    background: var(--fundo-cartao);
+    color: var(--azul-principal);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Troca as cores ao passar o mouse sobre o filtro. */
+.btn-filtro:hover {
+    background: var(--azul-principal);
+    color: var(--fundo-pagina);
+}
+
+/* ==================================================
+   GRADE DE ECOPONTOS
+   CSS Grid cria uma grade responsiva.
+   Cada coluna tera no minimo 240px e ocupara o espaco disponivel.
+   ================================================== */
+.grade-ecopontos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Aparencia visual de cada local de coleta criado pelo JavaScript. */
+.cartao-ecoponto {
+    padding: 18px;
+    border: 1px solid var(--borda-cartao);
+    border-radius: 14px;
+    background: var(--fundo-cartao);
+}
+
+.cartao-ecoponto h2 {
+    margin: 10px 0 6px;
+    font-size: 1.15rem;
+}
+
+/* Pequena etiqueta que informa a categoria do residuo. */
+.tag-residuo {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--fundo-etiqueta);
+    color: var(--azul-principal);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* Link para abrir o endereco no Google Maps. */
+.link-mapa {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--azul-principal);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link-mapa:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Link que leva da pagina principal para o guia de edicao. */
+.link-tutorial {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--azul-principal);
+    font-weight: 700;
+    text-underline-offset: 3px;
+}
+
+/* ==================================================
+   AJUSTES PARA TELAS PEQUENAS
+   Reduz o espaçamento externo em celulares.
+   ================================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .cartao-ecoponto {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,137 @@
+/* ==================================================
+   CONFIGURACOES DO GUIA
+   Estas variaveis pertencem apenas ao body da pagina tutorial.
+   Assim, cores e espacamento ficam separados do painel principal.
+   ================================================== */
+.tutorial-pagina {
+    --verde-principal: #15803d;
+    --fundo-pagina: #f0fdf4;
+    --fundo-cartao: #ffffff;
+    --texto-escuro: #1e293b;
+
+    /* Garante que padding e borda sejam incluídos no tamanho final. */
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 100vh;
+    padding: 24px;
+    background: var(--fundo-pagina);
+    color: var(--texto-escuro);
+    font-family: system-ui, sans-serif;
+}
+
+/* Aplica box-sizing aos elementos internos e aos pseudo-elementos do guia. */
+.tutorial-pagina *,
+.tutorial-pagina *::before,
+.tutorial-pagina *::after {
+    box-sizing: inherit;
+}
+
+/* Alinha todo o conteudo a esquerda e limita sua largura. */
+.tutorial-container {
+    max-width: 820px;
+    margin: 0;
+}
+
+/* Alinha o cabecalho a esquerda e separa-o das secoes abaixo. */
+.tutorial-topo {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+/* Organiza as secoes em uma unica coluna vertical.
+   A coluna ocupa toda a largura disponivel ate o limite definido acima. */
+.tutorial-pagina main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tutorial-topo,
+.tutorial-secao {
+    width: 100%;
+}
+
+/* Cria o espacamento natural entre titulo e subtitulo. */
+.tutorial-topo h1 {
+    margin: 8px 0;
+}
+
+/* Melhora a leitura dos textos e da lista. */
+.tutorial-topo p,
+.tutorial-secao p,
+.tutorial-secao li {
+    line-height: 1.65;
+}
+
+/* Estilo do link que retorna para a pagina principal. */
+.tutorial-voltar {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--verde-principal);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Informa visualmente que o link recebe o mouse ou o foco. */
+.tutorial-voltar:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Selo pequeno exibido no topo do guia. */
+.tutorial-pagina .selo-ambiental {
+    color: var(--verde-principal);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Cartoes de conteudo que dividem o guia em etapas. */
+.tutorial-secao {
+    margin: 16px 0;
+    padding: 20px;
+    border: 1px solid #bbf7d0;
+    border-radius: 14px;
+    background: var(--fundo-cartao);
+}
+
+/* Destaca os titulos numerados de cada etapa. */
+.tutorial-secao h2 {
+    margin-bottom: 10px;
+    color: var(--verde-principal);
+    font-size: 1.2rem;
+}
+
+/* Recuo das listas com marcadores ou numeros. */
+.tutorial-secao ol,
+.tutorial-secao ul {
+    padding-left: 22px;
+}
+
+/* Espaca os itens de uma lista sem alterar o primeiro item. */
+.tutorial-secao li + li {
+    margin-top: 6px;
+}
+
+/* Destaca nomes de arquivos e comandos mostrados no texto. */
+.tutorial-secao code {
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: #f0fdf4;
+}
+
+/* Aviso visual com uma barra verde na lateral esquerda. */
+.tutorial-aviso {
+    padding-left: 12px;
+    border-left: 4px solid var(--verde-principal);
+}
+
+/* Ajustes responsivos: economiza espaco em celulares. */
+@media (max-width: 480px) {
+    .tutorial-pagina {
+        padding: 16px;
+    }
+
+    .tutorial-secao {
+        padding: 16px;
+    }
+}
